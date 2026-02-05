@@ -29,6 +29,9 @@ public class Usuario {
     @Column(name = "usr_telefono", length = 20)
     private String telefono;
     
+    @Column(name = "usr_modalidad", length = 20)
+    private String modalidad; // virtual, presencial, hibrido
+    
     // Campos específicos para programadores
 	
     @Column(name = "usr_especialidad", length = 100)
@@ -124,8 +127,17 @@ public class Usuario {
     // ✅ NUEVO: Getter y Setter para telefono
     public String getTelefono() {
         return telefono;
-    }
 
+    }
+    
+    public String getModalidad() {
+        return modalidad;
+    }
+    
+    public void setModalidad(String modalidad) {
+		this.modalidad = modalidad;
+	}
+    	
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
