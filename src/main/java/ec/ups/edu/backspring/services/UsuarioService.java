@@ -2,6 +2,11 @@ package ec.ups.edu.backspring.services;
 
 import ec.ups.edu.backspring.main.GestionUsuarios; // Importamos la Gestión, NO el repo directo
 import ec.ups.edu.backspring.modelo.Usuario;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +16,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/usuarios")
 @CrossOrigin(origins = "*")
+@Tag(name = "Usuarios", description = "API para gestión de usuarios y programadores")
 public class UsuarioService {
 
     @Autowired
@@ -21,7 +27,7 @@ public class UsuarioService {
         return "Conexión Exitosa: API Spring Boot Usuarios";
     }
 
-    // Listar todos
+    @Operation(summary = "Listar todos los usuarios", description = "Obtiene la lista completa de usuarios registrados")
     @GetMapping
     public List<Usuario> getListaUsuarios() {
         return gestionUsuarios.getUsuarios();

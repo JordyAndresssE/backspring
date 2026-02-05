@@ -2,6 +2,8 @@ package ec.ups.edu.backspring.services;
 
 import ec.ups.edu.backspring.main.GestionProyectos; // Importamos la Gestión
 import ec.ups.edu.backspring.modelo.Proyecto;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,12 +13,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/proyectos")
 @CrossOrigin(origins = "*")
+@Tag(name = "Proyectos", description = "API para gestión de proyectos de programadores")
 public class ProyectoService {
 
     @Autowired
     private GestionProyectos gestionProyectos; // Inyectamos la clase de negocio
 
-    // Listar todos
+    @Operation(summary = "Listar todos los proyectos", description = "Obtiene la lista completa de proyectos")
     @GetMapping
     public List<Proyecto> getListaProyectos() {
         return gestionProyectos.getProyectos();
