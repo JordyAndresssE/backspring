@@ -25,6 +25,10 @@ public class Usuario {
 	@Column(name = "usr_rol", nullable = false, length = 20)
     private String rol;
     
+    // ✅ NUEVO CAMPO: Teléfono para notificaciones WhatsApp
+    @Column(name = "usr_telefono", length = 20)
+    private String telefono;
+    
     // Campos específicos para programadores
 	
     @Column(name = "usr_especialidad", length = 100)
@@ -117,6 +121,15 @@ public class Usuario {
         this.rol = rol;
     }
 
+    // ✅ NUEVO: Getter y Setter para telefono
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
     public String getEspecialidad() {
         return especialidad;
     }
@@ -199,7 +212,7 @@ public class Usuario {
 
     public String getHorarioJueves() {
         return horarioJueves;
-        }
+    }
 
     public void setHorarioJueves(String horarioJueves) {
         this.horarioJueves = horarioJueves;
@@ -231,6 +244,6 @@ public class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario [uid=" + uid + ", email=" + email + ", nombre=" + nombre + ", rol=" + rol + "]";
+        return "Usuario [uid=" + uid + ", email=" + email + ", nombre=" + nombre + ", telefono=" + telefono + ", rol=" + rol + "]";
     }
 }
